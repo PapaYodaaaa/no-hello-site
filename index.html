@@ -4,25 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seriously, Don't Just Say "Hello"</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Inter font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Set Inter as the default font --><script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
     <style>
         /* Apply Inter font as the default */
         body {
             font-family: 'Inter', sans-serif;
         }
-        
-        /* Simple chat bubble styling */
+        /* Style for chat bubbles */
         .chat-bubble {
-            @apply p-4 rounded-xl max-w-xs md:max-w-md;
+            display: inline-block;
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 20px;
+            word-wrap: break-word;
         }
-        .chat-bubble-self {
-            @apply bg-blue-500 text-white ml-auto rounded-br-none;
+        .chat-bubble-sender {
+            background-color: #3b82f6; /* blue-500 */
+            color: white;
+            border-bottom-left-radius: 4px;
         }
-        .chat-bubble-other {
-            @apply bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 mr-auto rounded-bl-none;
+        .chat-bubble-receiver {
+            background-color: #e5e7eb; /* gray-200 */
+            color: #1f2937; /* gray-800 */
+            border-bottom-right-radius: 4px;
+        }
+        .dark .chat-bubble-receiver {
+            background-color: #4b5563; /* gray-600 */
+            color: #e5e7eb; /* gray-200 */
+        }
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+            display: inline-block;
         }
     </style>
 </head>
@@ -30,8 +57,7 @@
 
     <div class="container max-w-4xl mx-auto p-6 sm:p-12">
         
-        <!-- Main Headline -->
-        <header class="text-center mb-12">
+        <!-- Main Headline --><header class="text-center mb-12">
             <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">
                 Are You Really Just Going to Say "Hello"?
             </h1>
@@ -41,73 +67,73 @@
         </header>
 
         <main>
-            <!-- Section: The Problem -->
-            <section class="mb-16">
+            <!-- Section: The Problem --><section class="mb-16">
                 <h2 class="text-3xl font-bold mb-6 text-center text-red-500">The Clueless Way (Don't do this)</h2>
                 <p class="text-lg text-center text-gray-700 dark:text-gray-300 mb-8">
                     This is what happens when you just say "hi" and wait. It forces the other person to stop, breaking their focus, just to reply "hello" so you can *then* get around to asking your question. Brilliant.
                 </p>
                 <div class="space-y-4 p-6 bg-gray-100 dark:bg-gray-800 rounded-2xl shadow-inner">
-                    <!-- Chat example: Bad -->
-                    <div class="flex">
-                        <div class="chat-bubble chat-bubble-other">
-                            <span class="block text-sm font-semibold mb-1">You</span>
-                            <p>Hi!</p>
-                            <span class="block text-xs text-gray-500 dark:text-gray-400 text-right mt-1">10:00 AM</span>
+                    <!-- Chat example: Bad --><div class="flex justify-start items-center">
+                        <img src="Shrek from the Hood.jpg" alt="Your Avatar" class="avatar">
+                        <div class="chat-bubble chat-bubble-receiver">
+                            <strong>You:</strong> hi
                         </div>
                     </div>
-                    <div class="flex">
-                        <div class="chat-bubble chat-bubble-self">
-                            <span class="block text-sm font-semibold mb-1">Me</span>
-                            <p>Hey, what's up?</p>
-                            <span class="block text-xs text-blue-200 text-right mt-1">10:05 AM</span>
+                    <div class="flex justify-start items-center">
+                        <img src="https://placehold.co/32x32/75B855/FFFFFF?text=Y" alt="Your Avatar" class="avatar">
+                        <div class="chat-bubble chat-bubble-receiver">
+                            <strong>You:</strong> u there?
                         </div>
                     </div>
-                    <div class="flex">
-                        <div class="chat-bubble chat-bubble-other">
-                            <span class="block text-sm font-semibold mb-1">You</span>
-                            <p>I have a quick question about the new project specs...</p>
-                            <span class="block text-xs text-gray-500 dark:text-gray-400 text-right mt-1">10:06 AM</span>
+                    <div class="flex justify-end items-center">
+                        <div class="chat-bubble chat-bubble-sender">
+                            <strong>Them:</strong> hey, what's up?
+                        </div>
+                        <img src="https://via.placeholder.com/32/3b82f6/ffffff?text=T" alt="Their Avatar" class="avatar ml-2 mr-0">
+                    </div>
+                    <div class="flex justify-start items-center">
+                        <img src="https://placehold.co/32x32/75B855/FFFFFF?text=Y" alt="Your Avatar" class="avatar">
+                        <div class="chat-bubble chat-bubble-receiver">
+                            <strong>You:</strong> I have a question about the new server config
                         </div>
                     </div>
-                    <!-- End of chat -->
-                    <div class="text-center pt-4">
+                    <div class="flex justify-end items-center">
+                        <div class="chat-bubble chat-bubble-sender">
+                            <strong>Them:</strong> ok, what is it?
+                        </div>
+                        <img src="https://via.placeholder.com/32/3b82f6/ffffff?text=T" alt="Their Avatar" class="avatar ml-2 mr-0">
+                    </div>
+                    <!-- End of chat --><div class="text-center pt-4">
                         <p class="text-gray-500 dark:text-gray-400 italic">...all that time you'll never get back.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Section: The Solution -->
-            <section class="mb-16">
+            <!-- Section: The Solution --><section class="mb-16">
                 <h2 class="text-3xl font-bold mb-6 text-center text-green-500">The Bare Minimum (Do this)</h2>
                 <p class="text-lg text-center text-gray-700 dark:text-gray-300 mb-8">
                     This is how functional adults communicate. You provide all the context and your question in <strong class="font-semibold">one message</strong>. I can answer it and we can both move on with our lives.
                 </p>
                 <div class="space-y-4 p-6 bg-gray-100 dark:bg-gray-800 rounded-2xl shadow-inner">
-                    <!-- Chat example: Good -->
-                    <div class="flex">
-                        <div class="chat-bubble chat-bubble-other">
-                            <span class="block text-sm font-semibold mb-1">You</span>
-                            <p>Hi! I have a quick question about the new project specs: where can I find the latest design mockups for the user dashboard?</p>
-                            <span class="block text-xs text-gray-500 dark:text-gray-400 text-right mt-1">10:00 AM</span>
+                    <!-- Chat example: Good --><div class="flex justify-start items-center">
+                        <img src="https://placehold.co/32x32/75B855/FFFFFF?text=Y" alt="Your Avatar" class="avatar">
+                        <div class="chat-bubble chat-bubble-receiver">
+                            <strong>You:</strong> Hey! Quick question: for the new server config, should I be using the `prod-v2` or `prod-legacy` environment variables?
                         </div>
                     </div>
-                    <div class="flex">
-                        <div class="chat-bubble chat-bubble-self">
-                            <span class="block text-sm font-semibold mb-1">Me</span>
-                            <p>Hey! You can find them all in the 'Designs' folder on the shared drive, here's the link: [link]</p>
-                            <span class="block text-xs text-blue-200 text-right mt-1">10:01 AM</span>
+                    <div class="flex justify-end items-center">
+                        <div class="chat-bubble chat-bubble-sender">
+                            <strong>Them:</strong> Hey, use `prod-v2`. The legacy one is being deprecated.
                         </div>
+                        <img src="https://via.placeholder.com/32/3b82f6/ffffff?text=T" alt="Their Avatar" class="avatar ml-2 mr-0">
                     </div>
-                    <!-- End of chat -->
-                    <div class="text-center pt-4">
+                    <!-- End of chat --><div class="text-center pt-4">
                         <p class="text-gray-500 dark:text-gray-400 italic">...problem solved, like magic. Or just... basic efficiency.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Section: Why it's better -->
-            <section class="mb-12">
+            <!-- Section: Why it's better --><section class="mb-12">
                 <h2 class="text-3xl font-bold mb-8 text-center">Why This Isn't Obvious is a Mystery</h2>
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-2xl">
@@ -123,15 +149,9 @@
                         </p>
                     </div>
                     <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-2xl">
-                        <h3 class="text-xl font-semibold mb-2">Works Across Time Zones</h3>
-                        <p class="text-gray-700 dark:text-gray-300">
-                            This is crucial for teams in different time zones. The person can wake up, see the full question, and answer it immediately, instead of waking up to "hi" and having to wait hours for the actual question.
-                        </p>
-                    </div>
-                    <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-2xl">
                         <h3 class="text-xl font-semibold mb-2">Provides Full Context</h3>
                         <p class="text-gray-700 dark:text-gray-300">
-                            By asking the full question, you're giving all the necessary information for the other person to help you. This prevents a long back-and-forth of clarifying questions.
+                            It gives the other person all the information they need to help you. They don't have to drag the details out of you one message at a time.
                         </p>
                     </div>
                     <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-2xl">
@@ -143,8 +163,7 @@
                 </div>
             </section>
 
-            <!-- Conclusion -->
-            <section class="text-center bg-blue-500 text-white p-8 sm:p-12 rounded-2xl shadow-lg">
+            <!-- Conclusion --><section class="text-center bg-blue-500 text-white p-8 sm:p-12 rounded-2xl shadow-lg">
                 <h2 class="text-3xl font-bold mb-4">So, Please. Just Ask.</h2>
                 <p class="text-xl md:text-2xl max-w-2xl mx-auto">
                     Next time you need help, try using your words. All of them. Just send the full question. It's not rude, it's <strong class="font-semibold">respectful</strong> of the fact that nobody has time for this.
@@ -152,14 +171,13 @@
             </section>
         </main>
 
-        <!-- Footer -->
-        <footer class="text-center mt-12">
-            <p class="text-gray-500 dark:text-gray-400">
-                <!-- Removed the "Inspired by" line as requested -->
-                Made by @LeftSack
+        <!-- Footer --><footer class="text-center mt-16 p-6 border-t border-gray-200 dark:border-gray-700">
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+                Created by @LeftSack
             </p>
         </footer>
 
     </div>
+
 </body>
 </html>
