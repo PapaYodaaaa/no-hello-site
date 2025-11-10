@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Please Don't Just Say Hello</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font as the default */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Simple chat bubble styling */
+        .chat-bubble {
+            @apply p-4 rounded-xl max-w-xs md:max-w-md;
+        }
+        .chat-bubble-self {
+            @apply bg-blue-500 text-white ml-auto rounded-br-none;
+        }
+        .chat-bubble-other {
+            @apply bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 mr-auto rounded-bl-none;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <div class="container max-w-4xl mx-auto p-6 sm:p-12">
+        
+        <!-- Main Headline -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">
+                Please don't just say "hello" in chat.
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400">
+                It's inefficient and wastes time. Just ask your question!
+            </p>
+        </header>
+
+        <main>
+            <!-- Section: The Problem -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold mb-6 text-center text-red-500">The Slow Way M-2</h2>
+                <p class="text-lg text-center text-gray-700 dark:text-gray-300 mb-8">
+                    This is what happens when you just say "hi" and wait. It forces the other person to stop what they're doing just to reply "hello" so you can *then* ask your question.
+                </p>
+                <div class="space-y-4 p-6 bg-gray-100 dark:bg-gray-800 rounded-2xl shadow-inner">
+                    <!-- Chat example: Bad -->
+                    <div class="flex">
+                        <div class="chat-bubble chat-bubble-other">
+                            <span class="block text-sm font-semibold mb-1">You</span>
+                            <p>Hi!</p>
+                            <span class="block text-xs text-gray-500 dark:text-gray-400 text-right mt-1">10:00 AM</span>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="chat-bubble chat-bubble-self">
+                            <span class="block text-sm font-semibold mb-1">Me</span>
+                            <p>Hey, what's up?</p>
+                            <span class="block text-xs text-blue-200 text-right mt-1">10:05 AM</span>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="chat-bubble chat-bubble-other">
+                            <span class="block text-sm font-semibold mb-1">You</span>
+                            <p>I have a quick question about the new project specs...</p>
+                            <span class="block text-xs text-gray-500 dark:text-gray-400 text-right mt-1">10:06 AM</span>
+                        </div>
+                    </div>
+                    <!-- End of chat -->
+                    <div class="text-center pt-4">
+                        <p class="text-gray-500 dark:text-gray-400 italic">...precious minutes wasted waiting.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: The Solution -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold mb-6 text-center text-green-500">The Better Way M-2</h2>
+                <p class="text-lg text-center text-gray-700 dark:text-gray-300 mb-8">
+                    This is much better. You provide all the context and your question in <strong class="font-semibold">one message</strong>. I can answer it as soon as I see it.
+                </p>
+                <div class="space-y-4 p-6 bg-gray-100 dark:bg-gray-800 rounded-2xl shadow-inner">
+                    <!-- Chat example: Good -->
+                    <div class="flex">
+                        <div class="chat-bubble chat-bubble-other">
+                            <span class="block text-sm font-semibold mb-1">You</span>
+                            <p>Hi! I have a quick question about the new project specs: where can I find the latest design mockups for the user dashboard?</p>
+                            <span class="block text-xs text-gray-500 dark:text-gray-400 text-right mt-1">10:00 AM</span>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="chat-bubble chat-bubble-self">
+                            <span class="block text-sm font-semibold mb-1">Me</span>
+                            <p>Hey! You can find them all in the 'Designs' folder on the shared drive, here's the link: [link]</p>
+                            <span class="block text-xs text-blue-200 text-right mt-1">10:01 AM</span>
+                        </div>
+                    </div>
+                    <!-- End of chat -->
+                    <div class="text-center pt-4">
+                        <p class="text-gray-500 dark:text-gray-400 italic">...problem solved, in a fraction of the time!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Why it's better -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold mb-8 text-center">Why is this better?</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-2xl">
+                        <h3 class="text-xl font-semibold mb-2">Respects Focus & Time</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            It allows the other person to answer when they have a moment of focus, without the pressure of a "hello" hanging over them. They can read, process, and answer all at once.
+                        </p>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-2xl">
+                        <h3 class="text-xl font-semibold mb-2">Enables Asynchronous Work</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            This is crucial for teams in different time zones. The person can wake up, see the full question, and answer it immediately, instead of waking up to "hi" and having to wait hours for the actual question.
+                        </p>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-2xl">
+                        <h3 class="text-xl font-semibold mb-2">Provides Full Context</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            By asking the full question, you're giving all the necessary information for the other person to help you. This prevents a long back-and-forth of clarifying questions.
+                        </p>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-2xl">
+                        <h3 class="text-xl font-semibold mb-2">It's Simply Faster</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            You get your answer faster. They spend less time context-switching. Everyone wins and can get back to doing meaningful work.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conclusion -->
+            <section class="text-center bg-blue-500 text-white p-8 sm:p-12 rounded-2xl shadow-lg">
+                <h2 class="text-3xl font-bold mb-4">So, please...</h2>
+                <p class="text-xl md:text-2xl max-w-2xl mx-auto">
+                    Next time you need help, just send your full question. It's not rude, it's <strong class="font-semibold">respectful</strong> of everyone's time.
+                </p>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12">
+            <p class="text-gray-500 dark:text-gray-400">
+                <!-- Removed the "Inspired by" line as requested -->
+            </p>
+        </footer>
+
+    </div>
